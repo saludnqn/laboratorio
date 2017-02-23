@@ -57,6 +57,11 @@ namespace WebLab.AutoAnalizador
                             VerificaPermisos("Miura");
                             lblTituloEquipo.Text = "MIURA QUIMICA".ToUpper();
                         } break;
+                    case "CobasC311":
+                        {
+                            VerificaPermisos("Cobas C311 - Envío de datos");
+                            lblTituloEquipo.Text = "Cobas C311".ToUpper();
+                        } break;
                 }
                 CargarPagina();
             }
@@ -108,9 +113,12 @@ namespace WebLab.AutoAnalizador
                 pnlMindray.Visible = true; imgEquipo.Visible = false;
                 //imgEquipo.ImageUrl = "../App_Themes/default/images/mindray.jpg";
             }
-           
-         //   txtCantidad.Value = "50";
 
+            if (Request["Equipo"].ToString() == "CobasC311")
+            {
+                pnlMindray.Visible = true; imgEquipo.Visible = false;
+            }
+           
         }
 
         
@@ -159,6 +167,16 @@ namespace WebLab.AutoAnalizador
                          WHERE (LAB_MetrolabItem.prefijo <> '')";
                 oUtil.CargarCombo(ddlPrefijo, m_ssql, "prefijo", "prefijo");
                 ddlTipoMuestra.Enabled = false;
+            }
+
+            /*Lo deshabilito porque no lo vamos a filtrar por prefijos*/
+            if (Request["Equipo"].ToString() == "CobasC311")
+            {
+                m_ssql = @"SELECT DISTINCT LAB_CobasC311.prefijo FROM LAB_CobasC311 
+                       WHERE (LAB_CobasC311.prefijo <> '')";
+                oUtil.CargarCombo(ddlPrefijo, m_ssql, "prefijo", "prefijo");
+                ddlTipoMuestra.Enabled = false;
+
             }
 
             if (Request["Equipo"].ToString() == "Mindray")
@@ -242,10 +260,7 @@ namespace WebLab.AutoAnalizador
 
         }
 
-
-
-
-
+        
         private object getListaSectores()
         {
             string m_lista = "";

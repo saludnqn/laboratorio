@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProtocoloBusqueda2.aspx.cs" Inherits="WebLab.AutoAnalizador.ProtocoloBusqueda2" MasterPageFile="~/Site1.Master" %>
-<%@ Register assembly="Anthem" namespace="Anthem" tagprefix="anthem" %>
-<asp:Content ID="content1" ContentPlaceHolderID="head" runat="server">
+<%@ Register Assembly="Anthem" Namespace="Anthem" TagPrefix="anthem" %>
+<asp:content id="content1" contentplaceholderid="head" runat="server">
 
     <link type="text/css"rel="stylesheet"      href="../script/jquery-ui-1.7.1.custom.css" />  
 
@@ -9,24 +9,24 @@
     
       <script type="text/javascript"     src="../script/jquery.ui.datepicker-es.js"></script>   
       
-      <script type="text/javascript"> 
-      
+      <script type="text/javascript">
 
-	$(function() {
-		$("#<%=txtFechaDesde.ClientID %>").datepicker({
-			showOn: 'button',
-			buttonImage: '../App_Themes/default/images/calend1.jpg',
-			buttonImageOnly: true
-		});
+
+          $(function () {
+              $("#<%=txtFechaDesde.ClientID %>").datepicker({
+	        showOn: 'button',
+	        buttonImage: '../App_Themes/default/images/calend1.jpg',
+	        buttonImageOnly: true
+	    });
 	});
-	$(function() {
-		$("#<%=txtFechaHasta.ClientID %>").datepicker({
-			showOn: 'button',
-			buttonImage: '../App_Themes/default/images/calend1.jpg',
-			buttonImageOnly: true
-		});
-	}); 
-     
+	$(function () {
+	    $("#<%=txtFechaHasta.ClientID %>").datepicker({
+	        showOn: 'button',
+	        buttonImage: '../App_Themes/default/images/calend1.jpg',
+	        buttonImageOnly: true
+	    });
+	});
+
   </script>    
   
    <%--	 <script type="text/javascript" src="../script/Mascara.js"></script>--%>
@@ -34,12 +34,12 @@
    
    
    
-</asp:Content>
+</asp:content>
 
 
 
 
-<asp:Content ID="content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">          
+<asp:content id="content2" contentplaceholderid="ContentPlaceHolder1" runat="server">          
     <br />   &nbsp;
     
 <div align="left" style="width:850px">
@@ -385,7 +385,7 @@
 						<td class="style2">
                                             &nbsp;</td>
 						
-						<td  >
+						<td>
                                             &nbsp;</td>
 						
 						<td   colspan="7">
@@ -409,7 +409,7 @@
                               
                                                   
                                          
-                               <asp:CustomValidator ID="cvFechas" runat="server" 
+                              <asp:CustomValidator ID="cvFechas" runat="server" 
                                 ErrorMessage="Fechas de inicio y de fin" 
                                 onservervalidate="cvFechas_ServerValidate" ValidationGroup="0" 
                                    Font-Size="10pt">*</asp:CustomValidator>
@@ -484,4 +484,4 @@
 					</tr>
 					</table>						
  </div>
- </asp:Content>
+ </asp:content>

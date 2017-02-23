@@ -150,6 +150,7 @@
     <Content Include="AutoAnalizador\Bc3000\ConfiguracionEdit.aspx" />
     <Content Include="AutoAnalizador\Clinitek\ConfiguracionEdit.aspx" />
     <Content Include="AutoAnalizador\CobasB221\ConfiguracionEdit.aspx" />
+    <Content Include="AutoAnalizador\CobasC311\ConfiguracionEdit.aspx" />
     <Content Include="AutoAnalizador\ImportaDatos.aspx" />
     <Content Include="AutoAnalizador\Mensaje.aspx" />
     <Content Include="AutoAnalizador\Metrolab\ConfiguracionEdit.aspx" />
@@ -1555,6 +1556,13 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AutoAnalizador\CobasB221\ConfiguracionEdit.aspx.designer.cs">
+      <DependentUpon>ConfiguracionEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AutoAnalizador\CobasC311\ConfiguracionEdit.aspx.cs">
+      <DependentUpon>ConfiguracionEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AutoAnalizador\CobasC311\ConfiguracionEdit.aspx.designer.cs">
       <DependentUpon>ConfiguracionEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="AutoAnalizador\EnvioMensaje.aspx.cs">
@@ -3332,6 +3340,13 @@
     <Content Include="Services\css\mint-choc\images\Thumbs.db" />
     <Content Include="Services\css\redmond\images\Thumbs.db" />
     <Content Include="Services\css\south-street\images\Thumbs.db" />
+    <Content Include="Web.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Estadisticas\General.rpt">
