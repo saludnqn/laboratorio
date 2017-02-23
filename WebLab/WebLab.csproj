@@ -1458,9 +1458,6 @@
     <Content Include="Turnos\FeriadoEdit.aspx" />
     <Content Include="Turnos\TurnoList.aspx" />
     <Content Include="Usuarios\PasswordEdit.aspx" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Principal.aspx" />
   </ItemGroup>
   <ItemGroup>
