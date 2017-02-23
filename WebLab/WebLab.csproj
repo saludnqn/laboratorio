@@ -47,7 +47,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AjaxControlToolkit">
-      <HintPath>..\..\Laboratorio_Castro\Referencias\AjaxControlToolkit.dll</HintPath>
+      <HintPath>..\Referencias\AjaxControlToolkit.dll</HintPath>
     </Reference>
     <Reference Include="Anthem, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -69,9 +69,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.Web.dll</HintPath>
     </Reference>
-    <Reference Include="fastJSON, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\fastJSON.dll</HintPath>
+    <Reference Include="fastjson">
+      <HintPath>..\packages\fastJSON.2.1.23\lib\net40\fastjson.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="FusionCharts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -93,12 +93,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Referencias\NHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="Salud.Security.SSO">
-      <HintPath>..\..\..\sso\sso\Salud.Security.SSO\bin\Salud.Security.SSO.dll</HintPath>
-    </Reference>
-    <Reference Include="Salud.Security.SSO.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Salud.Security.SSO, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\sso\sso\Salud.Security.SSO\bin\Salud.Security.SSO.Core.dll</HintPath>
+      <HintPath>..\..\guardia\Salud.Applications.Guardia\bin\Salud.Security.SSO.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -3341,6 +3338,7 @@
     <Content Include="Services\css\redmond\images\Thumbs.db" />
     <Content Include="Services\css\south-street\images\Thumbs.db" />
     <Content Include="Web.config" />
+    <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

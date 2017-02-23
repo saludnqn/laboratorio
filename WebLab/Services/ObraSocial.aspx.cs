@@ -62,7 +62,7 @@ namespace WebLab.Services
                 lstOS.Add(new oshelper() { id = -666, nombre = "No hay resultados", sigla = "", codigoNacion = "" });
             }
             Response.Clear();
-            Response.Write(JSON.Instance.ToJSON(lstOS));
+            Response.Write(JSON.ToJSON(lstOS));
             Response.Flush();
             Response.End();
         }
