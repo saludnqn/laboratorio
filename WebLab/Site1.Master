@@ -1,0 +1,205 @@
+﻿<%@ Master Language="C#"  AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="WebLab.Site1"      %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head runat="server">
+    <title>SIL - Sistema Informatico de Laboratorio</title>
+    <link rel="shortcut icon" href="App_Themes/default/images/favicon.ico">
+    
+	<link rel="stylesheet" type="text/css" href="App_Themes/default/style.css" />
+   <script type='text/javascript' src="<%= Page.ResolveUrl("~/script/jquery.min.js") %>"></script>
+   <script type="text/javascript"> 
+   
+
+function checkKeyCode()
+{ 
+
+if(window.event && window.event.keyCode == 116)
+{ 
+    //alert ('Refresh deshabilitado');
+    event.keyCode=0;
+    return false;
+} 
+
+if( window.event.keyCode == 8) 
+{
+     //BackSpace lo cambia por tecla: <- 
+        
+     valor = document.activeElement.value; 
+//     alert(valor);
+    if (valor==undefined) 
+        event.keyCode=37;
+    
+}
+
+if(window.event && window.event.keyCode == 122) 
+{
+event.keyCode=0; 
+return false;
+}
+ //Controla combinaciÃ³n: Alt <- 
+if(window.event && window.event.keyCode == 37 ) 
+{ 
+     //alert ('Alt <- Deshabilitada ');
+    event.keyCode=0;
+    return false; 
+} 
+teclaAnt = window.event.keyCode ;
+} 
+
+document.onkeydown=checkKeyCode;
+
+ 
+//if (document.all) {
+//// window.moveTo(0,0);
+//top.window.resizeTo(screen.availWidth,screen.availHeight);
+//}
+//else if (document.layers||document.getElementById) {
+//if (top.window.outerHeight<screen.availHeight||top.window.outerWidth<screen.availWidth){
+//top.window.outerHeight = screen.availHeight;
+//top.window.outerWidth = screen.availWidth;
+//}
+//}
+         function  efecto(){
+       $('#cargando').hide();
+                             $('#contenidoWeb').fadeIn(500);                           
+        }     
+        
+        
+        function Salir()
+        {
+        window.close();
+        }  
+        
+       function hoy()
+{
+   var fechaActual = new Date();
+ 
+    dia = fechaActual.getDate();
+    mes = fechaActual.getMonth() +1;
+    anno = fechaActual.getYear();
+    
+ 
+    if (dia <10) dia = "0" + dia;
+    if (mes <10) mes = "0" + mes;   
+ 
+    fechaHoy = dia + "/" + mes + "/" + anno;
+    
+    return fechaHoy;
+}
+   </script>   
+  <asp:ContentPlaceHolder ID="head" runat="server">
+ 
+  
+
+  </asp:ContentPlaceHolder>
+
+</head>
+  
+
+
+	
+   
+
+
+<body class="body" onload="Javascript:history.go(1);" onunload="Javascript:history.go(1);"> 	
+
+		  <form runat="server" id="form1"> 
+        <div >  
+         <table  width="100%" >
+         <tr >
+         <td style="vertical-align: top">	
+        <div id="logo" style="height: 80px">
+			<h1 >Sistema de Gestión de Laboratorios</h1>
+
+		    <h2><asp:Label CssClass="myLabelIzquierda"  ID="lblEfector" runat="server" Text="Usuario de prueba"></asp:Label> 			<br />           
+                <asp:Label   CssClass="myLabelIzquierda"  ID="lblUsuario" runat="server" Text="Usuario de prueba"></asp:Label> 
+                </h2>
+              
+		  </div>
+         </td>
+         
+         <td  align="right" style="vertical-align: top"> 
+         <div  align="center">
+         <br />
+         <a href="<%= Page.ResolveUrl("~/Help/help_LIS.html") %>" target="_blank"><img alt="Ayuda" title= "Ayuda en linea del Sistema" 
+          src="~/App_Themes/default/images/icono_help.jpg" border="0" visible="false"  runat="server" id="imgAyudaLinea" /></a>
+           <%--  <asp:ImageButton ID="imgAyudaLinea" 
+                 ImageUrl="~/App_Themes/default/images/icono_help.jpg" runat="server" target="_blank" CausesValidation="False" 
+                 TabIndex="9999" />--%>
+         
+     &nbsp;<a href="<%= Page.ResolveUrl("/Sips/default.aspx") %>">
+     <img alt="Principal" title= "Retorna a la pantalla principal"  src="<%= Page.ResolveUrl("~/App_Themes/default/images/icono_homeGratis.gif") %>" border="0"/></a>&nbsp;&nbsp;
+     <asp:HyperLink ID="lnkCerrar" runat="server"  ImageUrl="~/App_Themes/default/images/icon_close.gif" 
+         NavigateUrl="FinSesion.aspx" ToolTip="Cierra sesión del usuario y cierra el sistema">Cerrar Sesión</asp:HyperLink>
+         
+          <div class="myLabelIzquierda" > 
+      
+          <asp:Label ID="lblFechaHora" runat="server" Text="Label" 
+         CssClass="myLabelIzquierda"></asp:Label>
+           
+ </div>
+         </td>
+         </tr>
+
+
+   
+    
+   </table>   
+		</div>	  
+<div id="menu">
+ <asp:Menu ID="mnuPrincipal" runat="server" Orientation="Horizontal" 
+         BackColor="#3A93D2" 
+        DynamicHorizontalOffset="2" Font-Names="Arial" Font-Size="10pt" 
+        ForeColor="#ffffff" StaticSubMenuIndent="30px" 
+     Font-Bold="True"  StaticDisplayLevels="1" DynamicMenuStyle-CssClass="menu">
+     <StaticSelectedStyle BackColor="#2B7EBD" />
+
+    
+    
+
+    
+     <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+     <DynamicHoverStyle BackColor="#2B7EBD" ForeColor="White" />
+
+<DynamicMenuStyle BackColor="White" BorderColor="#507CD1" BorderStyle="Solid" 
+         BorderWidth="1px"></DynamicMenuStyle>
+     <DynamicSelectedStyle  BackColor="#2B7EBD" ForeColor="White" />
+     <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" 
+         ForeColor="#333333" />
+     <StaticHoverStyle BackColor="#2B7EBD" ForeColor="White" />
+
+    
+    
+
+    
+    </asp:Menu>
+  
+  
+</div>
+   
+  
+      
+
+  <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">                         
+  &nbsp; &nbsp; &nbsp; &nbsp;<br />
+  &nbsp; &nbsp; &nbsp; &nbsp;<br />&nbsp; &nbsp; &nbsp; &nbsp;<br />
+
+    &nbsp; &nbsp; &nbsp; &nbsp;<br />
+  &nbsp; &nbsp; &nbsp; &nbsp;<br />&nbsp; &nbsp; &nbsp; &nbsp;<br />
+    &nbsp; &nbsp; &nbsp; &nbsp;<br />
+  &nbsp; &nbsp; &nbsp; &nbsp;<br />&nbsp; &nbsp; &nbsp; &nbsp;<br />
+
+  </asp:ContentPlaceHolder>
+  
+
+
+	<div id="footer">
+		<p>Subsecretaría de Salud de la Provincia de Neuquén - Versión 5.0 - 2016</p>
+	</div>	</form>
+</body>
+ 
+</html>

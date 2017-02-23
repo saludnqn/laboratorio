@@ -1,0 +1,151 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using NHibernate;
+using Business;
+using System.Collections;
+using Business.Data.Laboratorio;
+using NHibernate.Expression;
+using System.Data;
+using System.Data.SqlClient;
+
+namespace WebLab.Turnos
+{
+    public partial class calendarioView : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        { if (!Page.IsPostBack)
+            VerificarAgenda();
+
+        }
+
+        private void VerificarAgenda()
+        {
+             String []Dia={"Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"};
+
+             if (Request["idItem"].ToString() != "0")
+             {
+                 Item oRegistro = new Item();
+                 oRegistro = (Item)oRegistro.Get(typeof(Item), int.Parse(Request["idItem"].ToString()));
+                 item.Text = oRegistro.Nombre;
+             }
+
+            
+
+            string m_ssqlItem = " AND A.IdItem=" + Request["idItem"].ToString();
+             m_ssqlItem += " AND A.IdTipoServicio=" + Request["idTipoServicio"].ToString();            
+
+            DateTime fecha = DateTime.Now.AddDays(1);// ..Parse(cldTurno.SelectedDate.ToShortDateString());
+
+            ISession m_session = NHibernateHttpModule.CurrentSession;
+            string m_ssql = " FROM Agenda A WHERE A.Baja=0 " + m_ssqlItem; //AND A.IdTipoServicio=" + ddlTipoServicio.SelectedValue +
+                            //" AND  (A.FechaDesde<='" + fecha.ToString("yyyyMMdd") + "' or  A.FechaDesde<='" + fecha.ToString("yyyyMMdd") + "')" +
+                            //" AND  A.FechaHasta>='" + fecha.ToString("yyyyMMdd") + "'" ;
+
+            IQuery q = m_session.CreateQuery(m_ssql);
+
+            List<CalendarioTurnos> resultadosList = new List<CalendarioTurnos>();
+            IList lista = q.List();
+            if (lista.Count > 0)
+            {
+                foreach (Agenda oAgenda in lista)
+                {
+                    DateTime fechaDesde =oAgenda.FechaDesde; if (fechaDesde < fecha) fechaDesde = fecha;
+                    DateTime fechaHasta = oAgenda.FechaHasta;
+
+                    ICriteria crit = m_session.CreateCriteria(typeof(AgendaDia));
+                    crit.Add(Expression.Eq("IdAgenda", oAgenda));
+                    
+
+                    IList listaDias = crit.List();
+                    if (listaDias.Count > 0)
+                    {
+                        foreach (AgendaDia oAgendaDia in listaDias)
+                        {
+
+                            DateTime fechaDesdeaux = fechaDesde;
+                            DateTime fechaHastaaux = fechaHasta;
+                            while (fechaDesdeaux <= fechaHastaaux)
+                            {
+
+                                int dia = (int) fechaDesdeaux.DayOfWeek; //bool result = false;
+                                if (dia == oAgendaDia.Dia)
+                                {
+                                    int cantidadTurnosdados = int.Parse(CalcularTurnoDisponible( fechaDesdeaux));
+                                    
+                                    int cantidadTurnos = oAgendaDia.LimiteTurnos;
+                                    int cantidadTurnosDisponibles = cantidadTurnos - cantidadTurnosdados;
+                                    if (cantidadTurnosDisponibles > 0)
+                                    {
+                                        CalendarioTurnos oCalendario = new CalendarioTurnos();
+                                        oCalendario.Fecha = fechaDesdeaux;
+                                        oCalendario.CantidadTurnosDisponibles = cantidadTurnosDisponibles;
+                                        oCalendario.Dia = Dia[dia];                                        
+                                        resultadosList.Add(oCalendario);
+                                    }
+                                }
+                                fechaDesdeaux = fechaDesdeaux.AddDays(1);
+                            }
+                         
+
+                        }
+                      
+                    }
+                    //else
+                    //    result = false;
+                }
+            }
+     //       resultadosList = from CalendarioTurnos in resultadosList orderby CalendarioTurnos.Fecha ascending select CalendarioTurnos;
+
+
+            resultadosList = (from n in resultadosList
+                           orderby  GetDynamicSortProperty(n, "Fecha") ascending
+                           select n).ToList();
+
+
+            gv.DataSource = resultadosList;
+            gv.DataBind();
+            //return result;
+        }
+        public object GetDynamicSortProperty(object item, string propName)
+        {
+            //Use reflection to get order type
+            return item.GetType().GetProperty(propName).GetValue(item, null);
+        }
+
+        public class CalendarioTurnos
+        {
+            public string Dia { get; set; }
+            public DateTime Fecha { get; set; }
+            
+            public int CantidadTurnosDisponibles { get; set; }
+        //    public int CantidadTurnosDados {get; set; }
+       
+
+            
+        }
+        private string CalcularTurnoDisponible( DateTime fecha)
+        {
+          //  DateTime fecha = DateTime.Parse(cldTurno.SelectedDate.ToShortDateString());
+            string m_strSQL = " SELECT idTurno AS idturno, hora FROM LAB_Turno AS T " +
+                              " WHERE (T.baja = 0) AND T.fecha='" + fecha.ToString("yyyyMMdd") + "'" +
+                            " AND T.IdItem=" + Request["idItem"].ToString() +" ORDER BY idturno DESC ";
+            DataSet Ds = new DataSet();
+            SqlConnection conn = (SqlConnection)NHibernateHttpModule.CurrentSession.Connection;
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = new SqlCommand(m_strSQL, conn);
+            adapter.Fill(Ds);
+
+          
+         m_strSQL=  Ds.Tables[0].Rows.Count.ToString();
+
+         return m_strSQL;
+
+
+
+        }
+    }
+}

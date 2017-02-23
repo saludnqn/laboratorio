@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.0">
+	<class name="Business.Data.Efector,Business" table="Sys_Efector">
+
+		<id name="IdEfector" column="idEfector" type="Int32" unsaved-value="0">
+			<generator class="native"/>
+		</id>
+		<property column="nombre" type="String" name="Nombre" not-null="true" length="100" />
+
+    <many-to-one name="IdZona" column="idZona" class="Business.Data.Zona,Business" />
+    <!--<property column="idZona" type="Int32" name="IdZona" not-null="true" />-->
+		<property column="nombreNacion" type="String" name="NombreNacion" not-null="true" length="100" />
+		<property column="complejidad" type="String" name="Complejidad" not-null="true" length="10" />
+		<property column="idEfectorSuperior" type="Int32" name="IdEfectorSuperior" not-null="true"  />
+		<property column="domicilio" type="String" name="Domicilio" not-null="true" length="200" />
+		<property column="telefono" type="String" name="Telefono" not-null="true" length="10" />
+		<property column="reponsable" type="String" name="Reponsable" not-null="true" length="100" />
+		
+	</class>
+</hibernate-mapping>
