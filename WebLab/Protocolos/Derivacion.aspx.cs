@@ -18,9 +18,10 @@ namespace WebLab.Protocolos
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack) { VerificaPermisos("Derivacion"); PreventingDoubleSubmit(btnBuscar); CargarListas(); 
+            if (!Page.IsPostBack) { VerificaPermisos("Derivacion"); PreventingDoubleSubmit(btnBuscar); CargarListas();
                 //CargarGrillaProtocolo(); 
-            ProtocoloList1.CargarGrillaProtocolo(Request["idServicio"].ToString());
+                
+                ProtocoloList1.CargarGrillaProtocolo(Request["idServicio"].ToString());
                 txtNumeroProtocolo.Focus();
             }
 
@@ -52,6 +53,7 @@ namespace WebLab.Protocolos
         private object LeerDatosProtocolos()
         {
             string str_condicion = " WHERE P.baja=0 and P.idTipoServicio="+ Request["idServicio"].ToString(); // +Session["idServicio"].ToString();
+  
             DateTime fecha1 = DateTime.Today;
             if (Request["urgencia"] != null)
             {
@@ -139,6 +141,7 @@ namespace WebLab.Protocolos
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
             if (Page.IsValid) { Response.Redirect("DerivacionProcesa.aspx?idEfector=" + ddlEfector.SelectedValue + "&protocolo=" + txtNumeroProtocolo.Text + "&idServicio="+ Request["idServicio"].ToString(), false); }//+"&isScreening=0"
+
 
         }
     }

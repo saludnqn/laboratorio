@@ -19,7 +19,7 @@
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
     <TargetFrameworkProfile />
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -93,9 +93,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Referencias\NHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="Salud.Security.SSO, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Salud.Security.SSO.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\guardia\Salud.Applications.Guardia\bin\Salud.Security.SSO.dll</HintPath>
+      <HintPath>..\..\sips\SistemaIntegradoConsultorio\bin\Salud.Security.SSO.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -151,6 +151,7 @@
     <Content Include="AutoAnalizador\ImportaDatos.aspx" />
     <Content Include="AutoAnalizador\Mensaje.aspx" />
     <Content Include="AutoAnalizador\Metrolab\ConfiguracionEdit.aspx" />
+    <Content Include="AutoAnalizador\Metrolab\ConfiguracionEdit2.aspx" />
     <Content Include="AutoAnalizador\Miura\ConfiguracionEdit.aspx" />
     <Content Include="AutoAnalizador\Phoresys\ConfiguracionEdit.aspx" />
     <Content Include="AutoAnalizador\ProtocoloBusqueda2.aspx" />
@@ -1589,6 +1590,13 @@
     </Compile>
     <Compile Include="AutoAnalizador\Metrolab\ConfiguracionEdit.aspx.designer.cs">
       <DependentUpon>ConfiguracionEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AutoAnalizador\Metrolab\ConfiguracionEdit2.aspx.cs">
+      <DependentUpon>ConfiguracionEdit2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AutoAnalizador\Metrolab\ConfiguracionEdit2.aspx.designer.cs">
+      <DependentUpon>ConfiguracionEdit2.aspx</DependentUpon>
     </Compile>
     <Compile Include="AutoAnalizador\MindrayBS300\ConfiguracionEdit.aspx.cs">
       <DependentUpon>ConfiguracionEdit.aspx</DependentUpon>
@@ -3654,6 +3662,9 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
@@ -3672,13 +3683,14 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>8700</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>
-          </IISUrl>
+          <IISUrl>http://localhost:8700/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://desarrollo.saludnqn.gob.ar/laboratorio</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <servers defaultServer="ExternalHost">
+            <server name="SelfHostServer" exePath="" cmdArgs="" url="http://localhost:8700/" workingDir="" />
+          </servers>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>

@@ -169,13 +169,12 @@ namespace WebLab.AutoAnalizador
                 ddlTipoMuestra.Enabled = false;
             }
 
-            /*Lo deshabilito porque no lo vamos a filtrar por prefijos*/
             if (Request["Equipo"].ToString() == "CobasC311")
             {
                 m_ssql = @"SELECT DISTINCT LAB_CobasC311.prefijo FROM LAB_CobasC311 
                        WHERE (LAB_CobasC311.prefijo <> '')";
                 oUtil.CargarCombo(ddlPrefijo, m_ssql, "prefijo", "prefijo");
-                ddlTipoMuestra.Enabled = false;
+                ddlTipoMuestra.Enabled = true;
 
             }
 
