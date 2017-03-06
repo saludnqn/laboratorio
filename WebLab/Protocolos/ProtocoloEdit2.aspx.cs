@@ -1263,7 +1263,7 @@ namespace WebLab.Protocolos
         {
             if (IsTokenValid())
             {
-                 
+
                 TEST++;
                 //Actualiza los datos de los objetos : alta o modificacion .
                 Efector oEfector = new Efector();
@@ -1274,7 +1274,7 @@ namespace WebLab.Protocolos
                 Origen oOrigen = new Origen();
                 Prioridad oPri = new Prioridad();
                 DateTime fecha = DateTime.Parse(txtFecha.Value);
-
+                
                 Configuracion oC = new Configuracion();
                 oC = (Configuracion)oC.Get(typeof(Configuracion), "IdConfiguracion", 1);
 

@@ -762,8 +762,8 @@ namespace Business.Data.Laboratorio
             {
                 ICriteria crit = m_session.CreateCriteria(typeof(Protocolo));
                 ///1.busco todos los protocolos dados de baja
-                crit.Add(Expression.Sql(" IdProtocolo in (Select top 1 IdProtocolo From LAb_Protocolo where Baja=1 and fecha='" + fecha + "' order by IdProtocolo )"));
-
+             //   crit.Add(Expression.Sql(" IdProtocolo in (Select top 1 IdProtocolo From LAb_Protocolo where Baja=1 and fecha='" + fecha + "' order by IdProtocolo )"));
+                crit.Add(Expression.Sql(" IdProtocolo in (Select top 1 IdProtocolo From LAb_Protocolo where Baja=1 and fecha=20170304 order by IdProtocolo )"));
                 IList lista = crit.List();
                 if (lista.Count > 0)
                 {
@@ -787,7 +787,8 @@ namespace Business.Data.Laboratorio
             {
                 Protocolo oUltimoProtocolo = new Protocolo();
                 ICriteria crit3 = m_session.CreateCriteria(typeof(Protocolo));
-                crit3.Add(Expression.Sql(" IdProtocolo in (Select top 1 IdProtocolo From LAb_Protocolo where Fecha='" + fecha + "' order by NumeroDiario desc)"));
+                crit3.Add(Expression.Sql(" IdProtocolo in (Select top 1 IdProtocolo From Lab_Protocolo where Fecha='" + fecha + "' order by NumeroDiario desc)"));
+                //crit3.Add(Expression.Sql(" Select top 1 IdProtocolo From Lab_Protocolo where Fecha='" + fecha + "' order by NumeroDiario desc"));
                 oUltimoProtocolo = (Protocolo)crit3.UniqueResult();
                 if (oUltimoProtocolo != null)
                     numerito = oUltimoProtocolo.NumeroDiario + 1;

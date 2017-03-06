@@ -33,6 +33,7 @@ namespace WebLab
         private void IdentificarSGH()
         {
             int idUsuarioLogueado = 2; // Request["idUsuario"].ToString();
+            
             if (Request["idUsuario"] != null) idUsuarioLogueado =int.Parse( Request["idUsuario"].ToString());
             CrearLogAcceso(idUsuarioLogueado);
             CrearPermisos(idUsuarioLogueado);

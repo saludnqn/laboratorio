@@ -69,6 +69,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.Web.dll</HintPath>
     </Reference>
+    <Reference Include="EasyListBox">
+      <HintPath>..\..\---laboratorio NO VA\WebLab\bin\EasyListBox.dll</HintPath>
+    </Reference>
     <Reference Include="fastjson">
       <HintPath>..\packages\fastJSON.2.1.23\lib\net40\fastjson.dll</HintPath>
       <Private>True</Private>
@@ -92,6 +95,9 @@
     <Reference Include="NHibernate, Version=1.0.2.0, Culture=neutral, PublicKeyToken=154fdcb44c4484fc">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Referencias\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Salud.Security.SSO">
+      <HintPath>..\..\---laboratorio NO VA\WebLab\bin\Salud.Security.SSO.dll</HintPath>
     </Reference>
     <Reference Include="Salud.Security.SSO.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -130,7 +136,6 @@
     <Content Include="App_Themes\default\images\ico_alerta.png" />
     <Content Include="App_Themes\default\images\ico_barra.png" />
     <Content Include="App_Themes\default\images\ico_torta.png" />
-    <Content Include="App_Themes\default\images\logo_sivila.jpg" />
     <Content Include="App_Themes\default\images\mindray.jpg" />
     <Content Include="App_Themes\default\images\red_pin.gif" />
     <Content Include="App_Themes\default\images\SIVILA.png" />
@@ -3347,6 +3352,7 @@
     <Content Include="Services\css\south-street\images\Thumbs.db" />
     <Content Include="Web.config" />
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\laboratorio.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

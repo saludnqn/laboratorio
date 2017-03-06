@@ -68,13 +68,16 @@ namespace WebLab.AutoAnalizador
             {
                 if (trepador.HasFile)
                 {
-                    string directorio = Server.MapPath(""); // @"C:\Archivos de Usuario\";
+                    //string directorio = Server.MapPath("~/SistemaLabo/"); // @"C:\Archivos de Usuario\";
+
+                    //Con esta ruta hardcodeada funciona lo idea sería subir la carpeta al servidor
+                    string directorio = @"c:\sistemaLabo\";
 
                     if (Directory.Exists(directorio))
                     {
-                        string archivo = directorio + "\\" + trepador.FileName;
+                        //string archivo = directorio + "\\" + trepador.FileName;
+                        string archivo = directorio +  trepador.FileName;
 
-                    
                         trepador.SaveAs(archivo);
                         estatus.Text = "El archivo se ha procesado exitosamente.";
 
@@ -94,11 +97,11 @@ namespace WebLab.AutoAnalizador
 
         private void CargarGrilla()
         {
-                        DataSet Ds = new DataSet();
+            DataSet Ds = new DataSet();
             SqlConnection conn = (SqlConnection)NHibernateHttpModule.CurrentSession.Connection;
             SqlCommand cmd = new SqlCommand();
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "[LAB_IncorporarResultados]";
+            cmd.CommandText = "[LAB_IncorporarResultadosMetrolab]";
 
 
             cmd.Connection = conn;
@@ -162,7 +165,7 @@ namespace WebLab.AutoAnalizador
             if (this.trepador.HasFile)
             {
                 string filename = this.trepador.PostedFile.FileName;
-                BorrarResultadosTemporales();
+               // BorrarResultadosTemporales();
 
                 if (filename.Substring(filename.LastIndexOf('.')).Trim().ToUpper() != ".EXE")
                 {
