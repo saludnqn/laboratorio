@@ -12,8 +12,8 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Data.SqlClient;
 using Business;
-using Business.Data.Laboratorio;
 using Business.Data.AutoAnalizador;
+using Business.Data.Laboratorio;
 using System.Drawing;
 using NHibernate;
 using NHibernate.Expression;
@@ -379,11 +379,11 @@ namespace WebLab.AutoAnalizador
                 if (m_Equipo == "CobasC311")
                 {
 
-                   m_Prefijo = Request["Prefijo"].ToString();
-
-                   CobasC311 oItemCobasC311 = new CobasC311();
-                   oItemCobasC311 = (CobasC311)oItemCobasC311.Get(typeof(CobasC311), "IdItemSil", oDetalle.IdSubItem.IdItem, "Habilitado", true);
-                   if (oItemCobasC311 != null)
+                    m_Prefijo = Request["Prefijo"].ToString();
+                    
+                    CobasC311Item oItemCobasC311 = new CobasC311Item();
+                    oItemCobasC311 = (CobasC311Item)oItemCobasC311.Get(typeof(CobasC311Item), "IdItemSil", oDetalle.IdSubItem.IdItem, "Habilitado", true);
+                    if (oItemCobasC311 != null)
                     {
                         if (m_Prefijo.Trim() != "Rutina")
                         {
@@ -408,8 +408,6 @@ namespace WebLab.AutoAnalizador
                             }
                         }
                     }
-                    
-
                 }
 
 

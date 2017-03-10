@@ -174,7 +174,7 @@ namespace WebLab.AutoAnalizador
                 m_ssql = @"SELECT DISTINCT LAB_CobasC311.prefijo FROM LAB_CobasC311 
                        WHERE (LAB_CobasC311.prefijo <> '')";
                 oUtil.CargarCombo(ddlPrefijo, m_ssql, "prefijo", "prefijo");
-                ddlTipoMuestra.Enabled = true;
+                ddlTipoMuestra.Enabled = false;
 
             }
 

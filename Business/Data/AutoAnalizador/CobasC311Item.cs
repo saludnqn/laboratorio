@@ -4,7 +4,7 @@ using System.Collections;
 namespace Business.Data.AutoAnalizador
 {
     [Serializable]
-    public sealed class CobasC311 : Business.BaseDataAccess
+    public sealed class CobasC311Item : Business.BaseDataAccess
     {
 
         #region Private Members
@@ -23,7 +23,7 @@ namespace Business.Data.AutoAnalizador
         /// <summary>
         /// default constructor
         /// </summary>
-        public CobasC311()
+        public CobasC311Item()
         {
             m_id = 0;
             m_itemCobas = string.Empty;
@@ -40,7 +40,7 @@ namespace Business.Data.AutoAnalizador
         /// <summary>
         /// required (not null) fields only constructor
         /// </summary>
-        public CobasC311(
+        public CobasC311Item(
             string itemCobas,
             int idItemCobas,
             int idItemSil,

@@ -1,18 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.0">
-  <class name="Business.Data.AutoAnalizador.CobasC311,Business" table="LAB_CobasC311">
+  <class name="Business.Data.AutoAnalizador.CobasC311Item,Business" table="LAB_CobasC311">
 
     <id name="Id" column="id" type="Int32" unsaved-value="0">
       <generator class="native"/>
     </id>
-    <property column="idItemCobas" type="int" name="IdItemCobas" not-null="true" />
     <property column="itemCobas" type="string" name="ItemCobas" not-null="true" />
+    <property column="idItemCobas" type="int" name="IdItemCobas" not-null="true" />
     <property column="idItemSil" type="int" name="IdItemSil" not-null="true" />
     <property column="tipoMuestra" type="string" name="TipoMuestra" not-null="true" />
-    <property column="prefijo" type="string" name="Prefijo" />
+    <property column="prefijo" type="string" name="Prefijo"/>
     <property column="habilitado" type="Boolean" name="Habilitado" not-null="true" />
-    <property column="codigoSil" type="string" name="CodigoSil" not-null="true" />
+    <property column="codigoSil" type="string" name="CodigoSil"/>
 
   </class>
 </hibernate-mapping>
+
+
+
 

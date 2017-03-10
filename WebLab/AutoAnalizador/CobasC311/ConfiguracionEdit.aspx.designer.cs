@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebLab.AutoAnalizador.CobasC311x {
+namespace WebLab.AutoAnalizador.CobasC311 {
     
     
     public partial class ConfiguracionEdit {

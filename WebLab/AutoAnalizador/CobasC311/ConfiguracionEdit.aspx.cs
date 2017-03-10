@@ -11,12 +11,11 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Data.SqlClient;
-using Business.Data.AutoAnalizador;
 using Business;
 using NHibernate;
 using NHibernate.Expression;
 
-namespace WebLab.AutoAnalizador.CobasC311x
+namespace WebLab.AutoAnalizador.CobasC311
 {
     public partial class ConfiguracionEdit : System.Web.UI.Page
     {
@@ -109,8 +108,8 @@ namespace WebLab.AutoAnalizador.CobasC311x
         }
         private void GuardarDetalleConfiguracion()
         {
-            
-            CobasC311 oDetalle = new CobasC311();
+
+            Business.Data.AutoAnalizador.CobasC311Item oDetalle = new Business.Data.AutoAnalizador.CobasC311Item();
 
             oDetalle.ItemCobas = ddlItemEquipo.SelectedItem.Text;
             oDetalle.IdItemCobas = int.Parse(ddlItemEquipo.SelectedValue);
@@ -146,13 +145,13 @@ namespace WebLab.AutoAnalizador.CobasC311x
             //////////////////////////////////////////////////////////////////////////////////////////
             string hay = "";
 
-            CobasC311 oItem = new CobasC311();
-            oItem = (CobasC311)oItem.Get(typeof(CobasC311), "IdItemSil", int.Parse(ddlItem.SelectedValue));
+            Business.Data.AutoAnalizador.CobasC311Item oItem = new Business.Data.AutoAnalizador.CobasC311Item();
+            oItem = (Business.Data.AutoAnalizador.CobasC311Item)oItem.Get(typeof(Business.Data.AutoAnalizador.CobasC311Item), "IdItemSil", int.Parse(ddlItem.SelectedValue));
             if (oItem == null)
             {
 
                 ISession m_session = NHibernateHttpModule.CurrentSession;
-                ICriteria crit = m_session.CreateCriteria(typeof(CobasC311));
+                ICriteria crit = m_session.CreateCriteria(typeof(Business.Data.AutoAnalizador.CobasC311Item));
                 crit.Add(Expression.Eq("IdItemCobas", Int32.Parse(ddlItemEquipo.SelectedValue)));
                 crit.Add(Expression.Eq("TipoMuestra", ddlTipoMuestra.SelectedItem.ToString()));
                 crit.Add(Expression.Eq("Prefijo", ddlPrefijo.SelectedValue.ToString()));
@@ -185,8 +184,8 @@ namespace WebLab.AutoAnalizador.CobasC311x
         {
             if (e.CommandName == "Eliminar")
             {
-                CobasC311 oRegistro = new CobasC311();
-                oRegistro = (CobasC311)oRegistro.Get(typeof(CobasC311), int.Parse(e.CommandArgument.ToString()));
+                Business.Data.AutoAnalizador.CobasC311Item oRegistro = new Business.Data.AutoAnalizador.CobasC311Item();
+                oRegistro = (Business.Data.AutoAnalizador.CobasC311Item)oRegistro.Get(typeof(Business.Data.AutoAnalizador.CobasC311Item), int.Parse(e.CommandArgument.ToString()));
                 oRegistro.Delete();
 
                 CargarGrilla();
@@ -201,8 +200,8 @@ namespace WebLab.AutoAnalizador.CobasC311x
 
             int i_id = int.Parse(gvLista.DataKeys[row.RowIndex].Value.ToString());
 
-            CobasC311 oRegistro = new CobasC311();
-            oRegistro = (CobasC311)oRegistro.Get(typeof(CobasC311), i_id);
+            Business.Data.AutoAnalizador.CobasC311Item oRegistro = new Business.Data.AutoAnalizador.CobasC311Item();
+            oRegistro = (Business.Data.AutoAnalizador.CobasC311Item)oRegistro.Get(typeof(Business.Data.AutoAnalizador.CobasC311Item), i_id);
             oRegistro.Habilitado = chkStatus.Checked;
             oRegistro.Save();
 

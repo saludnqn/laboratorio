@@ -87,7 +87,7 @@
     <Compile Include="cAppConfig.cs" />
     <Compile Include="Data\AutoAnalizador\ClinitekItem.cs" />
     <Compile Include="Data\AutoAnalizador\Cobasb221Item.cs" />
-    <Compile Include="Data\AutoAnalizador\CobasC311.cs" />
+    <Compile Include="Data\AutoAnalizador\CobasC311Item.cs" />
     <Compile Include="Data\AutoAnalizador\MetrolabItem.cs" />
     <Compile Include="Data\AutoAnalizador\MindrayItem.cs" />
     <Compile Include="Data\AutoAnalizador\MindrayProtocolo.cs" />
@@ -251,7 +251,7 @@
     <Content Include="bin\Debug\Iesi.Collections.dll" />
     <Content Include="bin\Debug\log4net.dll" />
     <Content Include="bin\Debug\NHibernate.dll" />
-    <Content Include="Data\AutoAnalizador\CobasC311.hbm.xml" />
+    <EmbeddedResource Include="Data\AutoAnalizador\CobasC311Item.hbm.xml" />
     <EmbeddedResource Include="Data\AutoAnalizador\ClinitekItem.hbm.xml" />
     <EmbeddedResource Include="Data\AutoAnalizador\BcItem.hbm.xml" />
     <EmbeddedResource Include="Data\Laboratorio\Feriado.hbm.xml" />
