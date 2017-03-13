@@ -613,9 +613,9 @@ namespace WebLab.Protocolos
             switch (oPaciente.IdSexo)
                 {
 
-                    case 1: lblSexo.Text= "F"; break;
-                case 2: lblSexo.Text = "M"; break;
-                case 3: lblSexo.Text = "I"; break;
+                    case 1: lblSexo.Text= "I"; break;
+                case 2: lblSexo.Text = "F"; break;
+                case 3: lblSexo.Text = "M"; break;
                 
 
                 
