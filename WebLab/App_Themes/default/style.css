@@ -730,10 +730,9 @@ font-weight: bold;
 .myTexto
 {
 	border: 1px solid #808080; /*font-weight: bold;*/
-	font-size: 9pt;
-	font-family: Verdana;
-
+	
 	background-color: #FCFCFC;
+
 }
 
 
@@ -833,7 +832,7 @@ font-weight: bold;
 {
 	border: 1px solid #3366CC;
 	text-align: center; /*	font-weight: bold;*/
-	font-size: 8pt;
+	font-size: 9pt;
 	font-family: arial;
 	background-color: #FFFFFF;
 	color: #2B7EBD;
@@ -920,17 +919,17 @@ font-weight: bold;
 
 .mytituloRelleno
 {
-	padding: 5px 5px 5px 5px;
+	padding: 0px 10px 0px 10px;
 	border: 1px solid #666666;
-	font-size: 16pt;
+	font-size: 12pt;
 	font-family: arial;
 	color: #000000;
-	/*vertical-align: top;*/
+	vertical-align: top;
 	font-weight: bold;
 	text-transform: none;
 	text-align: center; /*	background-image: url(      'images/CUADRO.jpg' );*/
 	background-color: #CCCCCC;
-	
+	width: 100%;
 }
 
 
