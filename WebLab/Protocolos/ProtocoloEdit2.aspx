@@ -396,12 +396,12 @@
                                                 <ContentTemplate>
                                                     <table id="tableOSociales" class="tabla3">
                                                         <tr>
-                                                            <td class="myLabelIzquierda" valign="top">Financiador / O.S:&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                                            <td class="myLabelIzquierda" valign="top">Financiador / O.S:</td>
                                                             <td>
-                                                                <div id="OS" runat="server" style="float: right; margin-top: 6px;
-                                                    margin-right: 0px;" visible="false">
-                                                                    &nbsp;</div>
-                                                                <div style="font-family: Verdana; position:relative; z-index:1;" >
+                                                                <%--<div id="OS" runat="server" style="float: right; margin-top: 6px;margin-right: 0px;" visible="false">
+
+                                                                </div>--%>
+                                                                <div >
                                                                     <uc1:OSociales ID="OSociales" runat="server" TabIndex="10" />
                                                                 </div>
                                                             </td>
@@ -444,7 +444,7 @@
 						<td colspan="2"  >
 					
 						
-					<div id="tabContainer" style="width: 1050px; z-index:2; position:relative;" >  
+					<div id="tabContainer"  >  
 						       <ul style="font-size: small">
     <li ><a href="#tab1">Analisis</a></li>    
     <li><a href="#tab2">Diagnósticos<img alt="tiene diagnostico" runat="server" id="diag" visible="false" style="border:none;" src="~/App_Themes/default/images/red_pin.gif" /></a></li>

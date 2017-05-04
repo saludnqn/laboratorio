@@ -328,15 +328,6 @@ namespace WebLab.Protocolos {
         protected global::System.Web.UI.UpdatePanel upOSocial;
         
         /// <summary>
-        /// OS control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl OS;
-        
-        /// <summary>
         /// OSociales control.
         /// </summary>
         /// <remarks>
