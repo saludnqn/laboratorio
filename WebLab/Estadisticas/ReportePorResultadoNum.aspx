@@ -198,16 +198,20 @@
 
                             <asp:DropDownList ID="ddlGrupoEtareo" runat="server">
                                 <asp:ListItem Selected="True" Value="0">Todos</asp:ListItem>
-                                <asp:ListItem Value="1">&lt; 1 año</asp:ListItem>
-                                <asp:ListItem Value="2">1 año</asp:ListItem>
-                                <asp:ListItem Value="3">2-4 años</asp:ListItem>
-                                <asp:ListItem Value="4">5-9 años</asp:ListItem>
-                                <asp:ListItem Value="5">10-14 años</asp:ListItem>
-                                <asp:ListItem Value="6">15-24 años</asp:ListItem>
-                                <asp:ListItem Value="7">25-34 años</asp:ListItem>
-                                <asp:ListItem Value="8">25-44 años</asp:ListItem>                                <asp:ListItem Value="9">45-64 años</asp:ListItem>
-                                
-                                <asp:ListItem Value="10">&gt; 65 años</asp:ListItem>
+                                <asp:ListItem Value="1">&lt;6 meses</asp:ListItem>
+                                <asp:ListItem Value="2">6-11 meses</asp:ListItem>
+                                <asp:ListItem Value="3">12-23 meses</asp:ListItem>
+                                <asp:ListItem Value="4">2-4 años</asp:ListItem>
+                                <asp:ListItem Value="5">5-9 años</asp:ListItem>
+                                <asp:ListItem Value="6">10-14 años</asp:ListItem>
+                                <asp:ListItem Value="7">15-19 años</asp:ListItem>
+                                <asp:ListItem Value="8">20-24 años</asp:ListItem>
+                                <asp:ListItem Value="9">25-34 años</asp:ListItem>
+                                <asp:ListItem Value="10">35-44 años</asp:ListItem>
+                                <asp:ListItem Value="11">45-54 años</asp:ListItem>
+                                <asp:ListItem Value="12">55-64 años</asp:ListItem>
+                                <asp:ListItem Value="13">65-74 años</asp:ListItem>
+                                <asp:ListItem Value="14">&gt;= 75 años</asp:ListItem>
                             </asp:DropDownList>
     </td>
 <td align="left"  > 
@@ -332,52 +336,72 @@
                               <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" >
                               <ItemStyle Width="5%" />
                               </asp:BoundField>
-                            <asp:BoundField DataField="<1" HeaderText="Menos 1 año" >
+                            <asp:BoundField DataField="<6 meses" HeaderText="Menos de 6 meses" >
                                   <FooterStyle BackColor="#CC3300" />
                                   <HeaderStyle BackColor="#CC3300" />
                                   <ItemStyle Width="5%" />
                               </asp:BoundField>
-                              <asp:BoundField DataField="1" HeaderText="1 año" >
+                              <asp:BoundField DataField="6 a 11 meses" HeaderText="6-11 meses" >
                                   <FooterStyle BackColor="#CC3300" />
                                   <HeaderStyle BackColor="#CC3300" />
                                   <ItemStyle Width="5%" />
                               </asp:BoundField>
-                              <asp:BoundField DataField="2 a 4" HeaderText="2-4 años" >
+                              <asp:BoundField DataField="12 a 23 meses" HeaderText="12-23 meses" >
                                   <FooterStyle BackColor="#CC3300" />
                                   <HeaderStyle BackColor="#CC3300" />
                                   <ItemStyle Width="5%" />
                               </asp:BoundField>
-                              <asp:BoundField DataField="5 a 9" HeaderText="5-9 años" >
+                              <asp:BoundField DataField="2 a 4 años" HeaderText="2-4 años" >
                                   <FooterStyle BackColor="#CC3300" />
                                   <HeaderStyle BackColor="#CC3300" />
                                   <ItemStyle Width="5%" />
                               </asp:BoundField>
-                              <asp:BoundField DataField="10 a 14" HeaderText="10-14 años" >
+                              <asp:BoundField DataField="5 a 9 años" HeaderText="5-9 años" >
                                   <FooterStyle BackColor="#CC3300" />
                                   <HeaderStyle BackColor="#CC3300" />
                                   <ItemStyle Width="5%" />
                               </asp:BoundField>
-                              <asp:BoundField DataField="15 a 24" HeaderText="15-24 años" >
+                              <asp:BoundField DataField="10 a 14 años" HeaderText="10-14 años" >
                                   <FooterStyle BackColor="#CC3300" />
                                   <HeaderStyle BackColor="#CC3300" />
                                   <ItemStyle Width="5%" />
                               </asp:BoundField>
-                              <asp:BoundField DataField="25 a 34" HeaderText="25-34 años" >
+                              <asp:BoundField DataField="15 a 19 años" HeaderText="15-19 años" >
                                   <FooterStyle BackColor="#CC3300" />
                                   <HeaderStyle BackColor="#CC3300" />
                                   <ItemStyle Width="5%" />
                               </asp:BoundField>
-                              <asp:BoundField DataField="35 a 44" HeaderText="35-44 años" >
+                              <asp:BoundField DataField="20 a 24 años" HeaderText="20-24 años" >
                                   <FooterStyle BackColor="#CC3300" />
                                   <HeaderStyle BackColor="#CC3300" />
                                   <ItemStyle Width="5%" />
                               </asp:BoundField>
-                              <asp:BoundField DataField="45 a 64" HeaderText="45-64 años" >
+                              <asp:BoundField DataField="25 a 34 años" HeaderText="25-34 años" >
                                   <FooterStyle BackColor="#CC3300" />
                                   <HeaderStyle BackColor="#CC3300" />
                                   <ItemStyle Width="5%" />
                               </asp:BoundField>
-                              <asp:BoundField DataField="65 y +" HeaderText="Mas 65 años" >
+                              <asp:BoundField DataField="35 a 44 años" HeaderText="35-44 años" >
+                                  <FooterStyle BackColor="#CC3300" />
+                                  <HeaderStyle BackColor="#CC3300" />
+                                  <ItemStyle Width="5%" />
+                              </asp:BoundField>
+                              <asp:BoundField DataField="45 a 54 años" HeaderText="45-54 años" >
+                                  <FooterStyle BackColor="#CC3300" />
+                                  <HeaderStyle BackColor="#CC3300" />
+                                  <ItemStyle Width="5%" />
+                              </asp:BoundField>
+                              <asp:BoundField DataField="55 a 64 años" HeaderText="55-64 años" >
+                                  <FooterStyle BackColor="#CC3300" />
+                                  <HeaderStyle BackColor="#CC3300" />
+                                  <ItemStyle Width="5%" />
+                              </asp:BoundField>
+                              <asp:BoundField DataField="65 a 74 años" HeaderText="65-74 años" >
+                                  <FooterStyle BackColor="#CC3300" />
+                                  <HeaderStyle BackColor="#CC3300" />
+                                  <ItemStyle Width="5%" />
+                              </asp:BoundField>
+                              <asp:BoundField DataField="75 y +" HeaderText="75 años ó +" >
                                   <FooterStyle BackColor="#CC3300" />
                                   <HeaderStyle BackColor="#CC3300" />
                                   <ItemStyle Width="5%" />

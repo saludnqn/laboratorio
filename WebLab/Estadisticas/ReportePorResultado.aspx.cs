@@ -25,7 +25,7 @@ namespace WebLab.Estadisticas
     {
         public CrystalReportSource oCr = new CrystalReportSource();
         int suma1 = 0;
-        int grupo1 = 0; int grupo2 = 0; int grupo3 = 0; int grupo4=0; int grupo5=0; int grupo6=0; int grupo7=0; int grupo8=0; int grupo9=0; int grupo10=0;
+        int grupo1 = 0; int grupo2 = 0; int grupo3 = 0; int grupo4=0; int grupo5=0; int grupo6=0; int grupo7=0; int grupo8=0; int grupo9=0; int grupo10=0; int grupo11 = 0; int grupo12 = 0; int grupo13 = 0; int grupo14 = 0;
         int masc = 0; int fem = 0; int ind = 0;
         
         protected void Page_PreInit(object sender, EventArgs e)
@@ -265,12 +265,12 @@ namespace WebLab.Estadisticas
 
                 if (e.Row.RowType == DataControlRowType.DataRow)
                 {
-                    ImageButton CmdPdf = (ImageButton)e.Row.Cells[15].Controls[1];
+                    ImageButton CmdPdf = (ImageButton)e.Row.Cells[19].Controls[1];
                     CmdPdf.CommandArgument = ddlAnalisis.SelectedValue + "~" + e.Row.Cells[0].Text; ///Codigo1 + ";" + codigo2
                     CmdPdf.CommandName = "PDF";
                     CmdPdf.ToolTip = "Ver Pacientes";
 
-                    ImageButton CmdExcel = (ImageButton)e.Row.Cells[16].Controls[1];
+                    ImageButton CmdExcel = (ImageButton)e.Row.Cells[20].Controls[1];
                     CmdExcel.CommandArgument = ddlAnalisis.SelectedValue + "~" + e.Row.Cells[0].Text; ///Codigo1 + ";" + codigo2
                     CmdExcel.CommandName = "EXCEL";
                     CmdExcel.ToolTip = "Ver Pacientes";
@@ -287,13 +287,16 @@ namespace WebLab.Estadisticas
                     if (e.Row.Cells[9].Text != "&nbsp;") grupo8 += int.Parse(e.Row.Cells[9].Text);
                     if (e.Row.Cells[10].Text != "&nbsp;") grupo9 += int.Parse(e.Row.Cells[10].Text);
                     if (e.Row.Cells[11].Text != "&nbsp;") grupo10 += int.Parse(e.Row.Cells[11].Text);
+                    if (e.Row.Cells[12].Text != "&nbsp;") grupo11 += int.Parse(e.Row.Cells[12].Text);
+                    if (e.Row.Cells[13].Text != "&nbsp;") grupo12 += int.Parse(e.Row.Cells[13].Text);
+                    if (e.Row.Cells[14].Text != "&nbsp;") grupo13 += int.Parse(e.Row.Cells[14].Text);
+                    if (e.Row.Cells[15].Text != "&nbsp;") grupo14 += int.Parse(e.Row.Cells[15].Text);
 
-                    if (e.Row.Cells[12].Text != "&nbsp;") masc += int.Parse(e.Row.Cells[12].Text);
-                    if (e.Row.Cells[13].Text != "&nbsp;") fem += int.Parse(e.Row.Cells[13].Text);
-                    if (e.Row.Cells[14].Text != "&nbsp;") ind += int.Parse(e.Row.Cells[14].Text);
-                    
-
+                    if (e.Row.Cells[16].Text != "&nbsp;") masc += int.Parse(e.Row.Cells[16].Text);
+                    if (e.Row.Cells[17].Text != "&nbsp;") fem += int.Parse(e.Row.Cells[17].Text);
+                    if (e.Row.Cells[18].Text != "&nbsp;") ind += int.Parse(e.Row.Cells[18].Text);
                 }
+ 
                 if (e.Row.RowType == DataControlRowType.Footer)
                 {
                     e.Row.Cells[0].Text = "TOTAL CASOS";
@@ -308,9 +311,14 @@ namespace WebLab.Estadisticas
                     e.Row.Cells[9].Text = grupo8.ToString();
                     e.Row.Cells[10].Text = grupo9.ToString();
                     e.Row.Cells[11].Text = grupo10.ToString();
-                    e.Row.Cells[12].Text = masc.ToString();
-                    e.Row.Cells[13].Text = fem.ToString();
-                    e.Row.Cells[14].Text = ind.ToString();
+                    e.Row.Cells[12].Text = grupo11.ToString();
+                    e.Row.Cells[13].Text = grupo12.ToString();
+                    e.Row.Cells[14].Text = grupo13.ToString();
+                    e.Row.Cells[15].Text = grupo14.ToString();
+
+                    e.Row.Cells[16].Text = masc.ToString();
+                    e.Row.Cells[17].Text = fem.ToString();
+                    e.Row.Cells[18].Text = ind.ToString();
                     
                 }
 
@@ -482,17 +490,20 @@ namespace WebLab.Estadisticas
 
             if (ddlGrupoEtareo.SelectedValue != "0")
             {
-                if (ddlGrupoEtareo.SelectedValue == "1") m_strCondicion += " and P.unidadEdad>0";
-                if (ddlGrupoEtareo.SelectedValue == "2") m_strCondicion += " and P.edad=1  and P.unidadedad=0";
-                if (ddlGrupoEtareo.SelectedValue == "3") m_strCondicion += " and P.edad>=2 and P.edad<=4 and P.unidadedad=0   ";
-                if (ddlGrupoEtareo.SelectedValue == "4") m_strCondicion += " and P.edad>=5 and P.edad<=9 and P.unidadedad=0    ";
-                if (ddlGrupoEtareo.SelectedValue == "5") m_strCondicion += " and P.edad>=10 and P.edad<=14 and P.unidadedad=0   ";
-                if (ddlGrupoEtareo.SelectedValue == "6") m_strCondicion += " and P.edad>=15 and P.edad<=24 and P.unidadedad=0   ";
-                if (ddlGrupoEtareo.SelectedValue == "7") m_strCondicion += " and P.edad>=25 and P.edad<=34 and P.unidadedad=0   ";
-                if (ddlGrupoEtareo.SelectedValue == "8") m_strCondicion += " and P.edad>=35 and P.edad<=44 and P.unidadedad=0   ";
-                if (ddlGrupoEtareo.SelectedValue == "9") m_strCondicion += " and P.edad>=45 and P.edad<=64 and P.unidadedad=0   ";
-                if (ddlGrupoEtareo.SelectedValue == "10") m_strCondicion += " and P.edad>=65  and P.unidadedad=0  ";
-
+                if (ddlGrupoEtareo.SelectedValue == "1") m_strCondicion += " and (P.unidadEdad=2 OR (P.unidadEdad=1 AND) P.edad<=6)";
+                if (ddlGrupoEtareo.SelectedValue == "2") m_strCondicion += " and P.edad<=6 and P.edad>=11 and P.unidadedad=1";
+                if (ddlGrupoEtareo.SelectedValue == "3") m_strCondicion += " and ( (P.edad=1 and P.unidadedad=0) OR (P.edad<=12 and P.edad>=23 and P.unidadedad=1) )   ";
+                if (ddlGrupoEtareo.SelectedValue == "4") m_strCondicion += " and P.edad>=2 and P.edad<=4 and P.unidadedad=0   ";
+                if (ddlGrupoEtareo.SelectedValue == "5") m_strCondicion += " and P.edad>=5 and P.edad<=9 and P.unidadedad=0    ";
+                if (ddlGrupoEtareo.SelectedValue == "6") m_strCondicion += " and P.edad>=10 and P.edad<=14 and P.unidadedad=0   ";
+                if (ddlGrupoEtareo.SelectedValue == "7") m_strCondicion += " and P.edad>=15 and P.edad<=19 and P.unidadedad=0   ";
+                if (ddlGrupoEtareo.SelectedValue == "8") m_strCondicion += " and P.edad>=20 and P.edad<=24 and P.unidadedad=0   ";
+                if (ddlGrupoEtareo.SelectedValue == "9") m_strCondicion += " and P.edad>=25 and P.edad<=34 and P.unidadedad=0   ";
+                if (ddlGrupoEtareo.SelectedValue == "10") m_strCondicion += " and P.edad>=35 and P.edad<=44 and P.unidadedad=0   ";
+                if (ddlGrupoEtareo.SelectedValue == "11") m_strCondicion += " and P.edad>=45 and P.edad<=54 and P.unidadedad=0   ";
+                if (ddlGrupoEtareo.SelectedValue == "12") m_strCondicion += " and P.edad>=55 and P.edad<=64 and P.unidadedad=0   ";
+                if (ddlGrupoEtareo.SelectedValue == "13") m_strCondicion += " and P.edad>=65 and P.edad<=74 and P.unidadedad=0   ";
+                if (ddlGrupoEtareo.SelectedValue == "14") m_strCondicion += " and P.edad>=75  and P.unidadedad=0  ";
             }
 
             if (ddlSexo.SelectedValue != "0")
