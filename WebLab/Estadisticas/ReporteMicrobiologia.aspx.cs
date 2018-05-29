@@ -999,7 +999,7 @@ namespace WebLab.Estadisticas
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                LinkButton CmdModificar = (LinkButton)e.Row.Cells[16].Controls[1];
+                LinkButton CmdModificar = (LinkButton)e.Row.Cells[20].Controls[1];
                 CmdModificar.CommandArgument = gvMicroorganismos.DataKeys[e.Row.RowIndex].Value.ToString();
                 CmdModificar.CommandName = "Resistencia";
                 CmdModificar.ToolTip = "Resistencia";

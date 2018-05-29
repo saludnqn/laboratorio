@@ -1747,6 +1747,12 @@
     <Compile Include="Estadisticas\ReportePorResultadoSivila.aspx.designer.cs">
       <DependentUpon>ReportePorResultadoSivila.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Estadisticas\ResultadoNumerico2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResultadoNumerico2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Informes\HojasdeTrabajo\HTrabajoProtocolo4Pesquisa.cs">
       <DependentUpon>HTrabajoProtocolo4Pesquisa.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -1920,12 +1926,6 @@
     </Compile>
     <Compile Include="Estadisticas\ReporteMicrobiologia.aspx.designer.cs">
       <DependentUpon>ReporteMicrobiologia.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Estadisticas\ResultadoNumerico2.cs">
-      <DependentUpon>ResultadoNumerico2.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Estadisticas\Produccion.aspx.cs">
       <DependentUpon>Produccion.aspx</DependentUpon>
@@ -3348,9 +3348,11 @@
     <Content Include="Services\css\mint-choc\images\Thumbs.db" />
     <Content Include="Services\css\redmond\images\Thumbs.db" />
     <Content Include="Services\css\south-street\images\Thumbs.db" />
-    <Content Include="Web.config" />
     <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\laboratorio.pubxml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3367,13 +3369,13 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Produccion2.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Estadisticas\ResultadoNumerico2.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>ResultadoNumerico2.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Estadisticas\Produccion.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Produccion.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticas\ResultadoNumerico2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ResultadoNumerico2.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Estadisticas\ResultadoPredefinido2.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
